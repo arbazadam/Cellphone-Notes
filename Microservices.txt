@@ -1,0 +1,21 @@
+—Service Discovery name itself is explaining about behavior, so in case of micro services there are many services running on internet, so we need one centralized places where we can directly find out which service is running or which IP and which Port.
+
+—Service Discovery is, How applications and micro services locate each other on a network.
+
+—Service Discovery is a single lookup service and self maintaining, you don't need to add clients because clients register themselves.
+
+Why do we need to use Service Discovery?
+
+—There are a large number of micro services and all services are inter-related and they are communicating each other and this is very challenging to configure so with the help of service discovery it automated.
+
+—Let’s imagine that you are writing some code that invokes a service that has a REST API so in order to make a request, your code needs to know the network location like IP address and port of a service instance.
+
+—In a traditional application running on physical hardware, the network locations of service instances are relatively static means always same. In a modern, cloud-based micro services application, however, this is a much more difficult problem to solve.
+
+—Service instances have dynamically assigned network locations.
+
+—The set of service instances changes dynamically because of auto-scaling, failures, and upgrades.
+
+—Consequently, your client code needs to use a more elaborate service discovery mechanism.
+
+—There are two main service discovery patterns: client-side discovery and server-side discovery.

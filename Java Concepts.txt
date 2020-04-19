@@ -1,0 +1,396 @@
+ • Instance block and static block.
+
+Whenever we create an object of a class by calling the new operator. The class is first loaded in the memory and then the object is created. On class load the static block is executed and on the object creation the instance block is executed. So if we just want to execute the static block we need to just load the class. In that case we must use Class.forName(String className);
+
+
+A concept on local variable.
+
+Just don't forget that while the local variable is on the stack, if the variable is an object reference, the object itself will still be created on the heap. There is no such thing as a stack object, only a stack variable.
+
+
+Y we set the path to jdk bin:-
+
+The answer is the bin directory contains the javac executable...
+
+
+How to store date in mysql database:- First thing we have to keep in mind is, whenever we create a date column in mysql database, the type of that column must be date. Which will store date part in the form. "YY-MM-DD". Now to store the date we need to create a date object of java.sql.Date. In order to create that. We must first create the object of java.util.Date. And pass this object by calling the getTime() method, as the argument to the constructor of java.sql.Date. and then using the PreparedStatement object we can do pst.setDate(java.sql.Date).
+
+
+Can we create an abstract class without abstract methods?
+Ans:- Yes we can !
+
+
+
+What happens if one of the members in a class does not implement serializable interface?
+
+When you try to serialize an object which implements Serializable interface, incase if the object includes a reference of a non serializable object then NotSerializableException will be thrown.
+
+We can only initialize an uninitialized final variable inside the constructor. If we have multiple constructors, then we must initialize the variable in all the constructors. a blank static final variable can only be initialized inside a static block.
+
+Process of combining all related programs into a single unit and executing on the rule "either all or none", is called transaction management.
+
+To get the ServletConfig object call the getServletConfig method of the GenericServlet class. and to get the ServletContext object call the getServletContext method on the ServletConfig object.
+
+
+
+Can we overload methods that differ only by static keyword?
+We cannot overload two methods in Java if they differ only by static keyword (number of parameters and types of parameters is same). See following Java program for example. This behaviour is same in C++ (See point 2 of this).
+
+// filename Test.java 
+
+public class Test { 
+
+    public static void foo() { 
+
+        System.out.println("Test.foo() called "); 
+
+    } 
+
+    public void foo() { // Compiler Error: cannot redefine foo() 
+
+        System.out.println("Test.foo(int) called "); 
+
+    } 
+
+    public static void main(String args[]) {  
+
+        Test.foo(); 
+
+    } 
+} 
+Output: Compiler Error, cannot redefine foo()
+
+
+
+
+
+
+Following are some important points for method overriding and static methods in Java.
+1) For class (or static) methods, the method according to the type of reference is called, not according to the object being referred, which means method call is decided at compile time.
+
+2) For instance (or non-static) methods, the method is called according to the type of object being referred, not according to the type of reference, which means method calls is decided at run time.
+
+3) An instance method cannot override a static method, and a static method cannot hide an instance method. For example, the following program has two compiler errors.
+
+* Java program to show that if static methods are redefined by 
+
+   a derived class, then it is not overriding but hidding. */
+
+  
+// Superclass 
+
+class Base { 
+
+      
+
+    // Static method in base class which will be hidden in subclass  
+
+    public static void display() { 
+
+        System.out.println("Static or class method from Base"); 
+
+    } 
+
+      
+
+     // Non-static method which will be overridden in derived class  
+
+     public void print()  { 
+
+         System.out.println("Non-static or Instance method from Base"); 
+
+    } 
+} 
+
+  
+// Subclass 
+
+class Derived extends Base { 
+
+      
+
+    // Static is removed here (Causes Compiler Error)  
+
+    public void display() { 
+
+        System.out.println("Non-static method from Derived"); 
+
+    } 
+
+      
+
+    // Static is added here (Causes Compiler Error)  
+
+    public static void print() { 
+
+        System.out.println("Static method from Derived"); 
+
+   } 
+} 
+4) In a subclass (or Derived Class), we can overload the methods inherited from the superclass. Such overloaded methods neither hide nor override the superclass methods — they are new methods, unique to the subclass.
+
+
+
+When do you override hashCode and equals?
+Whenever necessary especially if you want to do equality check based upon business logic rather than object equality eg:- two employees object are equal if they have the same emp_id despite the fact that they are two different objects, created by different part of the code. Also overriding both these methods are must if you want to use them as key in HashMap. Now as part of equals hashcode contract in java, when you override equals you must override hashcode as well, otherwise your object will not break invariant of classes eg:- Set, Map which relies on equals() method for proper functioning.
+
+A Constructor cannot be wrapped inside a try catch block doing tht will give a compilation error.
+
+We cant use reserved keywords as the name of variables. But same is not true for class names
+
+In java maximum allowed array size is 2147483647 which is the maximum value of int.
+
+
+In java, we can specify the array size with char,short,int and byte only.
+
+What will be the output of this ?
+class Interview
+{
+public static void main(String args[])
+{
+int a = 028;
+System.out.println(a); //compilation error.
+}
+}
+
+The above program will throw an error because octal number starts from zero and ends at 7 and any number which starts from zero is considered as an octal number.
+
+ • Moving the data from a smaller memory consuming data type to a bigger memory consuming datatype happens automatically whereas the opposite is not true.
+ for eg:- byte takes 1 byte of memory whereas int takes 4 bytes so if we try to copy a byte value to an int variable, then we are good to go.
+
+eg:- byte a=12;
+int b =a; // This is fine in java.
+
+but if we do int a =18;
+byte b = a; //this will give an error.
+
+In java the computation end result i.e :- addition subtraction or multiplication is automatically stored as an int value.So on adding up two byte values and storing them inside a byte variable gives an error. In order to store them as byte. u need to typecast it as byte before storing inside a variable. eg:- byte a=13;
+byte b=20;
+byte c=(byte)a+b;
+
+ • When the break statement is encountered inside a loop, the loop is immediately terminated and the program control resumes at the next statement following the loop.
+
+It can be used to terminate a case in the switch statement.
+
+eg:- public class Test{
+public static void main(String args[])
+{
+int[] numbers={10,20,30,40,50};
+for(int a:numbers){
+if(a==30){
+break;
+}
+System.out.println(a);
+System.out.println("\n");
+}
+}
+}
+
+ • Any java class that's defined within the scope of another class is known as nested class. It doesnt matter if it's anonymous,static,normal or whatever. If its inside another class it's technically considered as nested class. But non static nested classes are often referred to as inner classes.
+
+ • How to create object of a static inner class
+OuterClass.InnerClass obj=new OuterClass.InnerClass()
+
+ • How to create object of nested class(non-static)
+
+OuterClass oc=new OuterClass();
+OuterClass.InnerClass innerobj=oc.new InnerClass();
+
+In java we cannot use the keywords as variable name. eg:- static,void,catch,transient,synchronized,if,try. But we can use class names for variable names eg:- int String= 90;
+int Character=80;
+
+• Using parseInt in java.
+
+public static int parseInt(String s) throws NumberFormatException
+
+This function parses the string argument as a signed decimal integer.
+
+public static int parseInt(String s, int radix) throws NumberFormatException
+
+ This function parses the string argument as a signed integer in the radix specified by the second argument.
+
+• In order to create an user defined immutable class. we should mark the class as final. And mark all the instance variables as private and final and provide no setter methods for those variables. in order to set the value for those variables we must do it using a constructor.
+
+•The difference between thread.start() and thread.run() is that, when u call thread.start() a new thread is created and the logic inside the run method is output whereas on just calling the run method, no new thread is created and only the logic inside the run method is output.
+
+• You can’t set a daemon property after starting the thread. If you try to set the daemon property when the thread is active, It will throw a IllegalThreadStateException at run time.
+
+ • Difference between spring boot and spring MVC
+Spring MVC is a framework to be used in web applications and Spring boot is a Spring based production-ready project initializer. 
+
+ • The @SpringBootApplication Annotation.
+
+Spring needs to know which packages to scan for annotated components in order to add them to the IOC container. In a Spring Boot project, we typically set the main application class with the @SpringBootApplication annotation. Under the hood it is a combination of the @Configuration,@ComponentScan, and @EnableAutoConfiguration annotations. With this default setting,Spring Boot will auto scan for components in the current package(containing the @SpringBoot main class) and its sub packages.
+
+ • @Component is a class level annotation where as @Bean is a method level annotation and name of the method serves as the bean name.
+
+ • @Component need not to be used with the @Configuration annotation where as @Bean annotation has to be used within the class which is annotated with @Configuration.
+
+ • We cannot create a bean of a class using @Component, if the class is outside spring container whereas we can create a bean of a class using @Bean even if the class is present outside the spring container.
+
+#Autowired annotation cannot be used with a static field. Eg:- @Autowired
+                                static UserDao ud; is wrong
+
+ • Daemon threads in java
+
+Any thread created by main thread, which runs main method in java is by default non daemon because Thread inherits its daemon nature from the Thread which creates it i.e. parent Thread and since main thread is a non daemon thread, any other thread created from it will remain non-daemon until explicitly made daemon by calling setDaemon (true);
+
+Thread.setDaemon(true) makes a Thread daemon but it can only be called before starting Thread in java. It will throw IllegalThreadStateException if corresponding Thread is already started and running.
+
+Daemon threads are suitable for doing background jobs like housekeeping.
+
+JVM doesnt waits for the execution of daemon threads to be completed. it terminates as soon as the last user defined thread completes its execution
+
+The primary difference between HashSet and TreeSet is that, HashSet can store null objects, whereas TreeSet cannot store null objects.
+
+HttpEntity is a helper object which encapsulates header and body of an HTTP request or response. It can be used as handler method parameter.
+
+ • A non-linear data structure consists of a collection of the elements that are distributed on a plane which means there is no such sequence between the elements as it exists in a linear data structure
+
+ • LinkedList:- Java provides a doubly linked list implementation as java.util.LinkedList, this class can be used, whenever a linked list data structure is needed. 
+
+ • The application context is spring's advanced container. Similar to BeanFactory it can load bean definitions, wire beans together, and dispense beans upon request. This container is defined by org.springframework.context. ApplicationContext interface.
+
+ • In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
+
+ • The interface org.springframework.context.ApplicationContext represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the aforementioned beans. The container gets its instructions on what objects to instantiate, configure, and assemble by reading configuration metadata. The configuration metadata is represented in XML, Java annotations, or Java code. It allows you to express the objects that compose your application and the rich interdependencies between such objects.
+
+ • Spring Boot gives you defaults on all things, the default in database is H2, so when you want to change this and use any other database you must define the connection attributes in the  application.properties file.
+
+ • Spring comes with MultipartResolver to handle file upload in web application. There are two concrete implementations included in spring.
+
+1. CommonsMultipartResolver for Jakarta Commons FileUpload.
+
+2. StandardServletMultipartResolver for Servlet 3.0 Part API
+
+To define an implementation, create bean with the id "multipartResolver" in a DispatcherServlet's application context. Such a resolver gets applied to all requests handled by the DispatcherServlet.
+
+ • Defining a bean having a parameterized constructor in xml file.
+
+<bean id="a" class="com.example.Arbaz">
+<constructor-arg value="10" type="int"></constructor-arg>
+</bean>
+
+ • Hibernate
+
+The get()method returns null if there is no row with the given id exists in the database, whereas the load() method throws an ObjectNotFound error. Therefore, use the load() method only when the object is assumed exists.
+
+ • A note on Hibernate Session object.
+
+A Session is used to get a physical connection with a database. The Session object is lightweight and designed to be instantiated each time an interaction is needed with the database. Persistent objects are saved and retrieved through a Session object.
+
+The session objects should not be kept open for a long time because they are not usually thread safe and they should be created and destroyed them as needed. The main function of the Session is to offer, create, read, and delete operations for instances of mapped entity classes.
+
+Instances may exist in one of the following three states at a given point in time −
+
+transient − A new instance of a persistent class, which is not associated with a Session and has no representation in the database and no identifier value is considered transient by Hibernate.
+
+persistent − You can make a transient instance persistent by associating it with a Session. A persistent instance has a representation in the database, an identifier value and is associated with a Session.
+
+detached − Once we close the Hibernate Session, the persistent instance will become a detached instance.
+
+ • Some important restful annotations.
+
+@JsonProperty:- If for any cause we want to change the name of the json property in our response we can annotate our property in the model class with @JsonProperty("property_name")
+
+@JsonIgnoreProperties:- If we dont want any property in our Json response we can use this annotation at the class level and specify the property name inside it. eg:- JsonIgnoreProperties({"property_name","property_name"})
+
+@JsonPropertyOrder:- If we want a specific property order in our json response, then we can use this annotation at the class level and specify the property order. eg:- @JsonPropertyOrder({"property_name","property_name"}))
+
+@JsonInclude:- if we dont want the properties to be shown whose responses are null, then we must use this annotation at the class level.
+eg:- @JsonInclude(JsonInclude.Include.NON_NULL)
+
+ResponseBody:- If a method is annotated with @ResponseBody, Spring will bind the return value to outgoing HTTP response body. While doing that, Spring will use HTTP message converters to convert the value to HTTP response body, based on Content-Type present in request HTTP header.
+
+@ResponseEntity: It represents the entire HTTP response. Good thing about is that you can control anything that goes into it. You can specify status code, headers and body. It comes with several constructors to carry the information you want to sent in HTTP response
+
+@PathVariable: This annotation indicates that a method parameter should be bound to a URI template variable.[the one in '{}']
+
+ • A note on HashSet.
+
+HashSet uses HashMap internally to store it’s objects. Whenever you create a HashSet object, one HashMap object associated with it is also created. This HashMap object is used to store the elements you enter in the HashSet. The elements you add into HashSet are stored as keys of this HashMap object. The value associated with those keys will be a constant.
+
+Whenever you insert an element into HashSet using add() method, it actually creates an entry in the internally backing HashMap object with element you have specified as it’s key and constant called “PRESENT” as it’s value. This “PRESENT” is defined in the HashSet class as below.
+
+public boolean add(E e)
+{
+        return map.put(e, PRESENT)==null;
+}
+
+You can notice that, add() method of HashSet class internally calls put() method of backing HashMap object by passing the element you have specified as a key and constant “PRESENT” as it’s value.
+
+ • If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.
+
+ • Difference between concat() and + operator.
+
+Though both perform the same task of appending one string at the end of another. There are notable differences between them.
+
+concat() method takes only one argument.
+    eg:- String a="king";
+            a.concat("kong");
+
+whereas + operator can append any number of string.
+eg:- String c="klyde";
+String d=c+"john"+"tim"+"ron";
+
+ • When we pass null to the concat method, it throws NullPointerException, but if we add null using + operator, this wont throw null pointer exception.
+
+ • ContextLoaderListener
+ContextLoaderListener reads the spring configuration file (with value given against “contextConfigLocation” in web.xml), parse it and loads the beans defined in that config file. e.g. <servlet>
+ <servlet-name>spring</servlet-name>
+ <servlet-class>
+  org.springframework.web.servlet.DispatcherServlet
+ </servlet-class>
+ 
+ <init-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/applicationContext.xml</param-value>
+ </init-param>
+ 
+ <load-on-startup>1</load-on-startup>
+</servlet>
+
+ • @Component
+
+The @Component annotation marks a java class as a bean so the component-scanning mechanism of spring can pick it up and pull it into the application context. To use this annotation, apply it over class as below:
+
+ • ApplicationContext allows more than one config files to exist while BeanFactory only permits one.
+
+ • When we pass key and value object to the put method on Java HashMap, HashMap implementation calls hashcode method on the key object and applies returned hashcode into its own hashing function to find a bucket location for storing Entry Object. Important point is HashMap in java stores both Key and Value object as Map.Entry in a bucket.
+
+ • A principal in Spring generally means a user, device or some other system which can perform an action in application.
+
+ • To enable h2 in spring boot.
+
+put this entry in the application.properties file.
+
+spring.h2.console.enabled=true.
+
+And to look for the console, just go and type in the browser:- http://localhost:8080/h2-console
+
+Data.sql file in resources folder to directly insert the value in the table. Here we can write queries to insert the value. 
+
+When working with spring security in a spring boot app if we have the security dependency on  classpath all http endpoints will be secured by default security configuration class SecurityAutoConfiguration
+
+ • JAVA_HOME : JDK ka path.
+
+ • Catalina_home: tomcat ka path.
+
+Hibernate:-
+
+ • Configuration is a class which is present in org.hibernate.cfg package. It activates Hibernate framework. It reads both configuration file and mapping files.
+
+ • It checks whether the config file is syntactically correct or not.
+If the config file is not valid then it will throw an exception. If it is valid then it creates a meta-data in memory and returns the meta-data to object to represent the config file.
+
+@ResponseBody annotation tells spring mvc that the result of the method should be used as the body of the response.
+
+ • why char array is preffered over string for passwords.
+
+Strings are immutable. That means once you've created the String, if another process can dump memory, there's no way (aside from reflection) you can get rid of the data before garbage collection kicks in.
+
+With an array, you can explicitly wipe the data after you're done with it. You can overwrite the array with anything you like, and the password won't be present anywhere in the system, even before garbage collection.
+
+So yes, this is a security concern - but even using char[] only reduces the window of opportunity for an attacker, and it's only for this specific type of attack.
+
+As noted in the comments, it's possible that arrays being moved by the garbage collector will leave stray copies of the data in memory. I believe this is implementation-specific - the garbage collector may clear all memory as it goes, to avoid this sort of thing. Even if it does, there's still the time during which the char[] contains the actual characters as an attack window.

@@ -1,0 +1,18 @@
+Image:- An image is a compressed , self-contained piece of software which has to be unwrapped in order to use the functionality.
+Now this image may contain any software, operating system,service etc.
+
+ • What is a docker image?
+
+A docker image is created by the sequence of commands written in a file called as Dockerfile.
+
+When this docker file is executed using a docker command it results into a docker image with a name which we specify.
+
+When this image is executed by "docker run" command it will by itself start whatever application or a service it has to start on its execution.
+
+ • Docker containers do not package up the OS. They package up the applications with everything that the application needs to run. The engine is installed on top of the OS running on a host.
+
+ • Pushing a docker image to docker hub.
+
+We first need to create a docker account on hub.docker.io. Make a note of the docker id you provide there. Then, on the command prompt fire docker login.
+
+and after that do a push by firing:- docker push docker_id/repository_name:tag

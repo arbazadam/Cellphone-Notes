@@ -1,0 +1,67 @@
+Before executing a map reduce program we need to put the input file inside hdfs.
+
+//The command to put the file inside dfs is.
+hadoop dfs -put (path of the input file)/
+
+Inside the runner. i.e the main method.
+We must create the configuration object.
+
+Configuration cf=new Configuration();// It represents the core files we need to work in hadoop cluster. such as core-pysite.xml and all
+
+
+//Then create the job. By passing the configuration object and the job name to the getInstance method of the Job clasiyts.
+Job jb=Job.getInstance(cf,"WordJob"
+//Setting the outer most class to the job.
+job.setJarByClass(MyMaxMin.class);
+
+//Then set the mapper and the reducer class to the job.
+jb.setMapper(Map.class);
+jb.setReducer(Reducer.class);
+
+
+//Then set the output key class and output value class
+
+eg:-
+job.setOutputKeyClass();
+job.setOutputValueClass();
+
+//Then set input format class and output format class.
+
+eg:-
+job.setInputFormatClass();
+job.setOutputFormatClass();
+
+//Once we are done writing the map reduce program. We need to export the jar file. And at the end select the main class.
+
+
+To execute the program which is the jar. Fire the command.
+ hadoop jar (Path of the jar)/Name of the input file which we have moved inside the hdfs/name of the output file.
+
+
+Command to copy a file from one particular location to another in hdfs.
+• hadoop fs -cp (source path) (destination path).
+
+Command to move a file from one particular location to another in hdfs.
+• hadoop fs -mv (source path) (destination path)
+
+
+> hadoop fs -ls -R lists all files in hadoop directory and all subdirectories in hadoop directory.
+
+
+
+• If we move a file from local system to hdfs and later on we make some changes to the particular file in the local system and want to overwrite this in hdfs. Then we must fire this command.
+
+> hadoop fs -put -f (path of the file to be moved) (path of the hdfs)
+
+> hadoop fs -ls -R -h(path) will also list the size of the files..
+
+
+• Command to get file back from hdfs to local system.
+hadoop fs -get (hdfs path) (local file system path)
+
+• Command to get bunch of files back from hdfs to local system.
+instead of writing the absolute path, just write * in the above command.
+
+To filter files based on file extensions and move them to the local file system. We have :-
+
+• hadoop fs -get /user/asterix/new/*.csv /home/zartab/desktop/locationo

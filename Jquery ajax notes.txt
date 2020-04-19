@@ -1,0 +1,5 @@
+type:- type of request can be get or post.
+url:- the url to which the request is sent.
+contentType:- When sending data to the server use this content type.
+data:- the data which we send to the server
+dataType:- The type of data which is expected as a response from the server !

@@ -1,0 +1,15 @@
+• Never call document.write after the document has finished loading. It will overwrite the whole document.
+
+ • Always place your javascript code below ur body tag. Otherwise it will give error.
+
+Accessing a function without parenthesis(i.e () ) will return the function definition instead of the function result.
+
+8. Why can’t browsers read JSX?
+Browsers can only read JavaScript objects but JSX in not a regular JavaScript object. Thus to enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX transformers like Babel and then pass it to the browser.
+
+In strict mode undeclared variables are not automatically global.
+
+I just found out myself.  JS is the core language.  NodeJS allows JS programs to run outside a browser--sort of like a spacesuit/space station that allows people to work outside of earth.  VueJS and ReactJS are competing improvements to JS language.
+
+npm is node package manager, whereas npx executes the available package on the classpath
+

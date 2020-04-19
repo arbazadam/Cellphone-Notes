@@ -1,0 +1,14 @@
+Baseband:-
+
+it is the software that connects your phone to your network.
+
+The benefits of updating it are more signal reception, which means a lot faster download speeds, better call quality etc.
+
+Juice Jacking:- infecting the devices kept for charging at public stations.
+
+ • At the core git and github are very much the same thing- Github is just a place in the cloud where you can put your git repository instead of having it locally. If you dont want to use github you can set up a git daemon on one of the developers workstation, announce that local repository as the central one and push and pull to and from it.
+
+ransomware:- a type of malicious software designed to block access to a computer system until a sum of money is paid.
+
+malware:- Malware, or malicious software, is any program or file that is harmful to a computer user. Types of malware can include computer viruses, worms, Trojan horses and spyware.
+

@@ -1,0 +1,28 @@
+Data types in sqlite dbms
+
+INTEGER :- any integer type
+TEXT:- any character type
+REAL:- any floating-point number
+BLOB:- Binary Large Object
+
+whenever we want to make use of the sqlite database. We need to extend the SQLiteOpenHelper class. There are two abstract methods of this class onCreate(SQLiteDatabase db) and onUpgrade(SQLiteDatabase db,int oldversion,int newVersion).
+
+to execute the create query. we use db.execSQL(String sql)
+
+to execute the insert query. We first construct the ContentValues object. Then bind all the values to the appropriate columns by doing this.
+
+contentValues.put("column_name",value). Then we use db.insert("table_name",null,content_values_object);.
+
+The middle parameter is usually set to null. Its there in case the content values object is empty, and you want to insert an empty row into your table. its unlikely you'd want to do this. but if u did you'd replace the null value with the name of the columns in your table.
+
+Shortcut to go to a particular line number in android:- Ctrl+G
+
+Shortcut to open a file in android:- Ctrl+Shift+N
+
+Ctrl+Shift+Backspace brings you back to the last place where you made changes in the code. like Ctrl+W in eclipse.
+
+Ctrl+E for recently viewed files.
+
+In android:- colorPrimary is the color for the app bar.
+colorPrimaryDark is the color for the status bar
+and colorAccent is the color for any UI controls

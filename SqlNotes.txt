@@ -1,0 +1,69 @@
+To find second highest salary in sql, we have the query as:-
+
+Select max(salary) from tbl_name where salary<(select max(salary) from tbl_name)
+
+To find top 2 highest salary we can write this query.
+
+• Select * from employee order by salary desc limit 2;
+
+
+• When u try to insert a value of type date inside mysql table make sure you put it inside double quotes. And the value should be in YYYY-MM-DD format.
+
+
+• To find the column names in the corresponding tables.
+
+select column_name,table_name from information_schema.columns where column_name like 'emp_salary';
+
+
+•Creating a stored procedure in mysql.
+
+create procedure procedure_name(out out_parameter data type, in input_parameter data type)
+query
+
+Query to call a stored procedure:- "{call stored_procedure_name(?,?)}";
+
+• Having is used after group by clause whereas where is used before group by.
+
+• IN is another useful operator we can use alongside select. It provides a set of values which can be used in where clause.
+
+select * from tbl_name where ric in('abc','xyz');
+
+• A view is nothing more than a saved SQL query. a view can also be considered as a virtual table.
+
+Syntax:- Create view View_name as select 
+> Select query
+
+ • To find nth highest salary use the following query.
+
+Select sal from table order by sal desc limit n-1,1
+
+ • Adding foreign key syntax.
+
+at the end of creating the table, put this.
+FOREIGN KEY(column_name) REFERENCES table_which_we_are_referring_to(column_name) ON DELETE SET NULL
+
+ • Using unions in sql.
+
+1. the number of columns must be same in all the select statements.
+
+eg:- Select first_name from employee union select branch_name from branch;. if we do, select branch_name, branch_id from branch.. then this will pop error !!
+
+2. The data types of the columns in the union must be same !
+
+3. The result will be output under the column name of the first select statement.
+
+ • To rename a table in mysql use this query.
+
+Alter table old_table_name rename to new_table_name;
+
+ • creating triggers in mysql.
+
+create trigger trigger_name after insert on table_name for each row begin insert into table_name(column_name)values('value_to_be_inserted'); end $$
+
+ • Imp Query
+
+update tbo_hotel set expedia_id= (select substring(expedia_id,1,length(expedia_id)-1) where expedia_id like '%,') where expedia_id is not null and expedia_id like '%,'
+
+ • Listing the current delimiter in use from command line.--> \s
+
+ • information_schema is a virtual database where where information about app other databases that the mysql server maintains are stored. The tables in this schema are actually views not real tables and there is no database directory with that name.
